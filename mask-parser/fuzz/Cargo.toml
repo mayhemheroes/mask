@@ -1,0 +1,23 @@
+[package]
+name = "mask-parser-fuzz"
+version = "0.0.0"
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+mask-parser = { path = ".." }
+libfuzzer-sys = { version = "0.4", features = ["arbitrary-derive"] }
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "parse"
+path = "fuzz_targets/parse.rs"
+
+
+
+

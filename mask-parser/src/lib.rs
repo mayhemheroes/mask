@@ -1,4 +1,4 @@
 pub mod maskfile;
-mod parser;
+pub mod parser;
 
 pub use parser::parse;
