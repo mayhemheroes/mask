@@ -11,6 +11,8 @@ RUN cargo install -f cargo-fuzz
 ADD . /mask
 WORKDIR /mask
 
+RUN cd ./mask-parser/src && sed -i 's/^mod parser;$/pub mod parser;/' lib.rs
+RUN cd ../../
 RUN cd ./mask-parser/fuzz && cargo +nightly fuzz build
 
 # Move Fuzzers to a clean image
